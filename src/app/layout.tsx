@@ -16,11 +16,6 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "Fletcher's Vending Services – Reliable Vending Machines With Proven Locations",
   description: "Buy profitable vending machines with secured, high-traffic locations. Transparent pricing, proven earnings, full support from Michael Bennet and the Fletcher's Vending team.",
-  icons: {
-    icon: '/images/logo.jpg',
-    shortcut: '/images/logo.jpg',
-    apple: '/images/logo.jpg',
-  },
 };
 
 export default function RootLayout({
