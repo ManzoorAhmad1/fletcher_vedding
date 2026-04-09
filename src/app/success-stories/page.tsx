@@ -1,10 +1,11 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Star, ArrowRight, Phone, TrendingUp, MapPin } from "lucide-react"
+import { ArrowRight, Phone } from "lucide-react"
+import StoriesGrid from "@/components/StoriesGrid"
 
 const stories = [
   {
-    img: "/images/WhatsApp Image 2026-04-09 at 11.10.14 AM.jpeg",
+    img: "/images/buyer-1.jpg",
     name: "Tasha M.",
     location: "Chicago, IL",
     bought: "Snack Vending Machine",
@@ -14,7 +15,7 @@ const stories = [
     rating: 5,
   },
   {
-    img: "/images/WhatsApp Image 2026-04-09 at 11.10.16 AM.jpeg",
+    img: "/images/buyer-2.jpg",
     name: "James R.",
     location: "Atlanta, GA",
     bought: "Combo Vending Machine",
@@ -24,7 +25,7 @@ const stories = [
     rating: 5,
   },
   {
-    img: "/images/WhatsApp Image 2026-04-09 at 11.10.18 AM.jpeg",
+    img: "/images/buyer-3.jpg",
     name: "Chris D.",
     location: "Houston, TX",
     bought: "Two Machine Package",
@@ -34,7 +35,7 @@ const stories = [
     rating: 5,
   },
   {
-    img: "/images/WhatsApp Image 2026-04-09 at 11.10.20 AM.jpeg",
+    img: "/images/buyer-4.jpg",
     name: "Kyla F.",
     location: "Dallas, TX",
     bought: "Beverage Vending Machine",
@@ -44,7 +45,7 @@ const stories = [
     rating: 5,
   },
   {
-    img: "/images/WhatsApp Image 2026-04-09 at 11.10.18 AM.jpeg",
+    img: "/images/buyer-3.jpg",
     name: "Marcus T.",
     location: "Memphis, TN",
     bought: "Snack & Beverage Combo",
@@ -98,6 +99,7 @@ export default function SuccessStoriesPage() {
       {/* TESTIMONIALS */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <StoriesGrid />
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {stories.map((s) => (
               <div key={s.name} className="bg-white border border-blue-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">

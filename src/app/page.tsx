@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { CheckCircle, ArrowRight, Star, TrendingUp, MapPin, Shield, Users, Award } from "lucide-react"
+import ReviewsSection from "@/components/ReviewsSection"
 
 const trustStats = [
   { icon: TrendingUp, label: "Machines Placed", value: "50+" },
@@ -121,9 +122,9 @@ export default function HomePage() {
             <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
               <div className="flex -space-x-2">
                 {[
-                  "/images/WhatsApp Image 2026-04-09 at 11.10.14 AM.jpeg",
-                  "/images/WhatsApp Image 2026-04-09 at 11.10.16 AM.jpeg",
-                  "/images/WhatsApp Image 2026-04-09 at 11.10.18 AM.jpeg",
+                  "/images/buyer-1.jpg",
+                  "/images/buyer-2.jpg",
+                  "/images/buyer-3.jpg",
                 ].map((src, i) => (
                   <div key={i} className="w-9 h-9 rounded-full border-2 border-white overflow-hidden">
                     <Image src={src} alt="buyer" width={36} height={36} className="w-full h-full object-cover object-top" />
@@ -147,7 +148,7 @@ export default function HomePage() {
             <div className="relative w-full max-w-sm lg:max-w-md">
               <div className="rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
                 <Image
-                  src="/images/WhatsApp Image 2026-04-09 at 11.10.12 AM.jpeg"
+                  src="/images/owner.jpg"
                   alt="Michael Bennet with a Fletcher's Vending machine"
                   width={500}
                   height={700}
@@ -280,51 +281,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SUCCESS STORIES PREVIEW */}
-      <section className="bg-[#F0F6FF] py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <span className="inline-block bg-blue-100 text-[#1E40AF] text-xs font-semibold px-4 py-1.5 rounded-full mb-4 uppercase tracking-wide">Real Results</span>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Success Stories</h2>
-            <p className="text-gray-600 max-w-xl mx-auto">Real buyers. Real machines. Real passive income.</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { img: "/images/WhatsApp Image 2026-04-09 at 11.10.14 AM.jpeg", name: "Tasha M.", bought: "Snack Vending Machine", earning: "$750/month", quote: "I was skeptical at first, but Michael walked me through every step. My machine now earns me $750/month consistently. Best investment I have made!" },
-              { img: "/images/WhatsApp Image 2026-04-09 at 11.10.16 AM.jpeg", name: "James R.", bought: "Combo Vending Machine", earning: "$1,000+/month", quote: "The location Michael secured for me is incredible. I am hitting over $1,000 a month. The process was transparent and professional from start to finish." },
-              { img: "/images/WhatsApp Image 2026-04-09 at 11.10.18 AM.jpeg", name: "Chris D.", bought: "Two Machine Package", earning: "$1,800+/month", quote: "Bought two machines at once and it was the best decision. Fletcher's Vending handled everything — delivery, setup, training. I earn passive income every week." },
-            ].map((t) => (
-              <div key={t.name} className="bg-white rounded-2xl overflow-hidden border border-blue-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                {/* Fixed-height portrait photo */}
-                <div className="relative w-full h-72">
-                  <Image src={t.img} alt={t.name} fill className="object-cover object-top" />
-                  {/* Stars overlay */}
-                  <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/95 rounded-full px-3 py-1.5 shadow">
-                    {[...Array(5)].map((_, i) => <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />)}
-                  </div>
-                  {/* Earning badge */}
-                  <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
-                    {t.earning}
-                  </div>
-                </div>
-                {/* Quote + name */}
-                <div className="p-5">
-                  <p className="text-gray-700 text-sm leading-relaxed italic mb-4">&ldquo;{t.quote}&rdquo;</p>
-                  <div className="border-t border-blue-50 pt-3">
-                    <p className="font-bold text-gray-900 text-sm">{t.name}</p>
-                    <p className="text-gray-500 text-xs">Purchased: {t.bought}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link href="/success-stories" className="inline-flex items-center gap-2 bg-[#1E40AF] text-white font-bold px-8 py-3 rounded-xl hover:bg-[#1e3a8a] transition-colors">
-              View All Success Stories <ArrowRight size={18} />
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ReviewsSection />
 
       {/* TRUST SIGNALS */}
       <section className="bg-white py-16 border-t border-blue-50">

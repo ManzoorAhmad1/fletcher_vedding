@@ -40,7 +40,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-blue-100 max-w-md">
                 <Image
-                  src="/images/WhatsApp Image 2026-04-09 at 11.10.12 AM.jpeg"
+                  src="/images/owner.jpg"
                   alt="Michael Bennet – Owner of Fletcher's Vending Services"
                   width={500}
                   height={700}
