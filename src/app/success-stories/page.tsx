@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Phone } from "lucide-react"
+import { ArrowRight, MapPin, Phone, Star, TrendingUp } from "lucide-react"
 import StoriesGrid from "@/components/StoriesGrid"
 
 const stories = [
