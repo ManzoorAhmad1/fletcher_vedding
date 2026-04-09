@@ -38,12 +38,13 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-blue-100 aspect-[3/4] max-w-md">
+              <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-blue-100 max-w-md">
                 <Image
                   src="/images/WhatsApp Image 2026-04-09 at 11.10.12 AM.jpeg"
                   alt="Michael Bennet – Owner of Fletcher's Vending Services"
-                  fill
-                  className="object-cover object-top"
+                  width={500}
+                  height={700}
+                  className="w-full h-auto"
                 />
               </div>
               {/* floating stat */}

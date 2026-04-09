@@ -113,8 +113,10 @@ export default function MachinesPage() {
             {machines.map((m) => (
               <div key={m.id} className={`bg-white rounded-2xl overflow-hidden border shadow-sm flex flex-col transition-all duration-300 ${m.available ? "border-blue-100 hover:shadow-xl hover:-translate-y-1" : "border-gray-200 opacity-70"}`}>
                 {/* Image */}
-                <div className="relative h-56">
-                  <Image src={m.img} alt={m.title} fill className="object-cover" />
+                <div className="relative">
+                  <div className="bg-white flex items-center justify-center p-4" style={{minHeight: '240px'}}>
+                    <Image src={m.img} alt={m.title} width={400} height={400} className="w-full h-auto object-contain" style={{maxHeight: '200px'}} />
+                  </div>
                   <div className="absolute top-3 left-3 flex gap-2">
                     <span className={`text-xs font-semibold px-3 py-1 rounded-full ${typeColors[m.type] || "bg-blue-100 text-blue-700"}`}>{m.type}</span>
                     {!m.available && <span className="bg-gray-700 text-white text-xs font-semibold px-3 py-1 rounded-full">Sold</span>}

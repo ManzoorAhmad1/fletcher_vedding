@@ -98,44 +98,49 @@ export default function SuccessStoriesPage() {
       {/* TESTIMONIALS */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {stories.map((s) => (
-              <div key={s.name} className="bg-white border border-blue-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-                <div className="p-6">
+              <div key={s.name} className="bg-white border border-blue-100 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col">
+                {/* Large photo */}
+                <div className="relative w-full h-80 flex-shrink-0">
+                  <Image src={s.img} alt={s.name} fill className="object-cover object-top" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent" />
                   {/* Stars */}
-                  <div className="flex items-center gap-1 mb-4">
+                  <div className="absolute top-3 left-3 flex items-center gap-1 bg-white/90 rounded-full px-3 py-1.5 shadow">
                     {[...Array(s.rating)].map((_, i) => (
-                      <Star key={i} size={18} className="text-yellow-400 fill-yellow-400" />
+                      <Star key={i} size={13} className="text-yellow-400 fill-yellow-400" />
                     ))}
                   </div>
+                  {/* Earnings badge */}
+                  <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow">
+                    {s.monthlyEarning}
+                  </div>
+                  {/* Name overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 p-4">
+                    <p className="text-white font-bold text-xl leading-tight">{s.name}</p>
+                    <p className="text-blue-200 text-xs">{s.location} &bull; {s.bought}</p>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-5 flex flex-col flex-1">
                   {/* Quote */}
-                  <p className="text-gray-700 leading-relaxed mb-6 italic text-sm">&ldquo;{s.quote}&rdquo;</p>
-                  {/* Stats */}
-                  <div className="grid grid-cols-2 gap-3 mb-6">
+                  <p className="text-gray-700 leading-relaxed italic text-sm mb-5 flex-1">&ldquo;{s.quote}&rdquo;</p>
+                  {/* Stats row */}
+                  <div className="grid grid-cols-2 gap-3 border-t border-blue-50 pt-4">
                     <div className="bg-[#F0F6FF] rounded-xl p-3">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <TrendingUp size={13} className="text-[#1E40AF]" />
+                        <TrendingUp size={12} className="text-[#1E40AF]" />
                         <span className="text-xs font-semibold text-gray-500">Monthly Earnings</span>
                       </div>
-                      <p className="text-green-600 font-bold">{s.monthlyEarning}</p>
+                      <p className="text-green-600 font-bold text-sm">{s.monthlyEarning}</p>
                     </div>
                     <div className="bg-[#F0F6FF] rounded-xl p-3">
                       <div className="flex items-center gap-1.5 mb-1">
-                        <MapPin size={13} className="text-[#1E40AF]" />
+                        <MapPin size={12} className="text-[#1E40AF]" />
                         <span className="text-xs font-semibold text-gray-500">Location</span>
                       </div>
                       <p className="text-gray-700 font-medium text-xs">{s.machineLocation}</p>
-                    </div>
-                  </div>
-                  {/* Buyer info */}
-                  <div className="flex items-center gap-4 border-t border-blue-50 pt-5">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-blue-100 flex-shrink-0">
-                      <Image src={s.img} alt={s.name} fill className="object-cover object-top" />
-                    </div>
-                    <div>
-                      <p className="font-bold text-gray-900">{s.name}</p>
-                      <p className="text-gray-500 text-xs">{s.location}</p>
-                      <p className="text-[#1E40AF] text-xs font-medium mt-0.5">Purchased: {s.bought}</p>
                     </div>
                   </div>
                 </div>
@@ -158,15 +163,12 @@ export default function SuccessStoriesPage() {
           <div className="grid md:grid-cols-2 gap-8">
             {caseStudies.map((cs) => (
               <div key={cs.title} className="bg-white rounded-2xl overflow-hidden border border-blue-100 shadow-sm">
-                <div className="relative h-48">
-                  <Image src={cs.img} alt={cs.title} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <h3 className="text-white font-bold text-lg">{cs.title}</h3>
-                    <p className="text-blue-200 text-sm">{cs.location}</p>
-                  </div>
+                <div className="bg-[#F0F6FF] flex items-center justify-center p-4" style={{minHeight: '200px'}}>
+                  <Image src={cs.img} alt={cs.title} width={400} height={400} className="w-full h-auto object-contain" style={{maxHeight: '180px'}} />
                 </div>
                 <div className="p-6">
+                  <h3 className="font-bold text-gray-900 text-lg mb-1">{cs.title}</h3>
+                  <p className="text-[#1E40AF] text-sm mb-4">{cs.location}</p>
                   <div className="grid grid-cols-2 gap-3 mb-4">
                     {[
                       { label: "Machine Type", val: cs.machine },
